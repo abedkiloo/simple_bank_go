@@ -8,13 +8,14 @@ A simple **Go** implementation of a transaction flow in a banking ecosystem. Thi
 
 ### **1️⃣ Clone the Repository**  
 ```sh
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/abedkiloo/simple_bank_go.git
+```
 cd your-repo
 2️⃣ Run PostgreSQL in a Docker Container
 Ensure you have Docker installed, then start the PostgreSQL container:
-
-sh
+```sh
 make postgres
+```
 This will:
 
 Start a PostgreSQL database in a Docker container
@@ -24,35 +25,32 @@ User: admin
 Password: simple_bank_secret
 Database: simple_bank
 3️⃣ Create the Database
-sh
+```sh
 make createdb
+```
 This will create the simple_bank database inside the running PostgreSQL container.
 
 🚀 Running the Application
 Start the Go Application
-sh
+```sh
 go run main.go
+```
 Make sure your Go application is configured to connect to localhost:5432.
 
 Run Migrations
-sh
-
+```sh
 migrate --path db/migration --database "postgres://admin:simple_bank_secret@localhost:5432/simple_bank?sslmode=disable" --verbose up
+```
 Stop and Remove the Database (If Needed)
-sh
+```sh
 
 make dropdb  # Drops the database
 make stop    # Stops the PostgreSQL container
 make clean   # Removes the container
+```
 🛠 Using the Makefile for Automation
 The Makefile simplifies common database and Docker operations:
 
-Command	Description
-make postgres	Starts PostgreSQL in Docker
-make createdb	Creates the simple_bank database
-make dropdb	Drops the simple_bank database
-make stop	Stops the PostgreSQL container
-make clean	Removes the PostgreSQL container completely
 📌 Features
 ✅ Go-based transaction processing
 ✅ PostgreSQL integration using Docker
