@@ -9,6 +9,8 @@ createdb:
 	 docker exec -it postgres_local createdb --username=admin --owner=admin simple_bank
 
 dropdb:
-	 docker exec -it postgres_local dropdb --username=admin --owner=admin simple_bank
+	 docker exec -it postgres_local dropdb --username=admin  simple_bank
+migrate_db_initial:
+	migrate -path db/migration -database "postgres://admin:simple_bank_secret@localhost:5433/simple_bank?sslmode=disable" --verbose up
 
 .PHONY: postgres createdb dropdb
