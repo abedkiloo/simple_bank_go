@@ -12,5 +12,8 @@ dropdb:
 	 docker exec -it postgres_local dropdb --username=admin  simple_bank
 migrate_db_initial:
 	migrate -path db/migration -database "postgres://admin:simple_bank_secret@localhost:5433/simple_bank?sslmode=disable" --verbose up
-
+migrate_db_down_initial:
+	migrate -path db/migration -database "postgres://admin:simple_bank_secret@localhost:5433/simple_bank?sslmode=disable" --verbose down
+sqlc:
+	sqlc generate
 .PHONY: postgres createdb dropdb
