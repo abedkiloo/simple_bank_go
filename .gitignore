@@ -5,7 +5,3 @@
 *.swo
 *.bak
 # sqlc & Migrations
-internal/db/sqlc/*
-db/sqlc/*
-!db/sqlc/schema.sql  # Keep schema file
-migrations/*.sqlc
